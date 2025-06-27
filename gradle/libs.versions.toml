@@ -1,0 +1,53 @@
+[versions]
+
+# Core #
+agp = "8.6.0"
+kotlin = "2.0.21"
+coreKtx = "1.10.1"
+
+# Android Related #
+lifecycleRuntimeKtx = "2.6.1"
+activityCompose = "1.8.0"
+composeBom = "2025.02.00"
+appcompat = "1.6.1"
+material = "1.10.0"
+jetbrainsKotlinJvm = "2.0.21"
+androidx-lifecycle = "2.8.7"
+
+# DI #
+hilt = "2.56.2"
+hiltNavigationCompose = "1.2.0"
+
+# Navigation #
+nav3Core = "1.0.0-alpha01"
+lifecycleViewmodelNav3 = "1.0.0-alpha01"
+
+# KSP #
+ksp = "2.0.0-1.0.22"
+
+# Util #
+jakewhartonTimber = "5.0.1"
+jetbrainsKotlinJvmVersion = "2.0.21"
+
+kotlinSerialization = "2.1.21"
+kotlinxSerializationCore = "1.8.1"
+material3AdaptiveNav3 = "1.0.0-SNAPSHOT"
+
+[libraries]
+# Core Navigation 3 libraries
+androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "nav3Core" }
+androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "nav3Core" }
+
+# Optional add-on libraries
+androidx-lifecycle-viewmodel-navigation3 = { module = "androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "lifecycleViewmodelNav3" }
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerializationCore" }
+
+# Note: The Material3 adaptive layouts library for Navigation 3 is currently
+# only available in snapshot builds. Follow the instructions at androidx.dev to
+# add the snapshot builds repository to your project.
+androidx-material3-adaptive-navigation3 = { group = "androidx.compose.material3.adaptive", name = "adaptive-navigation3", version.ref = "material3AdaptiveNav3" }
+
+[plugins]
+# Optional plugins
+jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinSerialization"}
+
