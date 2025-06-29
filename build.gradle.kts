@@ -7,7 +7,7 @@ plugins {
     id("org.jetbrains.kotlin.jvm") version libs.versions.kotlin.get() apply false
     id("com.google.dagger.hilt.android") version libs.versions.hilt.get() apply false
     id("com.google.devtools.ksp") version libs.versions.ksp.get() apply false
-    alias(libs.plugins.jetbrains.kotlin.serialization)
+    id("org.jetbrains.kotlin.plugin.serialization") version libs.versions.kotlinSerialization.get() apply false
 }
 
 buildscript {

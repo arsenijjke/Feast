@@ -1,4 +1,4 @@
-package navigation
+package com.example.feast.navigation.root
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -9,17 +9,19 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSavedStateNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import androidx.navigation3.ui.rememberSceneSetupNavEntryDecorator
-import kotlinx.serialization.Serializable
+import com.example.feast.navigation.home.HomeNavDisplay
+import com.example.feast.navigation.home.HomeNavKey
 
-@Serializable
-data object HomeScreen : NavKey
-
+/**
+ * A top-level [NavigationRoot] of application.
+ */
 @Composable
 fun NavigationRoot(
     modifier: Modifier,
 ) {
-    val backStack = rememberNavBackStack(HomeScreen)
+    val backStack = rememberNavBackStack(HomeNavKey)
     NavDisplay(
+        modifier = modifier,
         backStack = backStack,
         entryDecorators = listOf(
             rememberSavedStateNavEntryDecorator(),
@@ -28,16 +30,19 @@ fun NavigationRoot(
         ),
         entryProvider = { key ->
             when (key) {
-                is HomeScreen -> {
-                    NavEntry(
-                        key = key,
-                    ) {
-
-                    }
-                }
-
+                is HomeNavKey -> { navEntry(key) { HomeNavDisplay(backStack, key) } }
                 else -> throw RuntimeException("Invalid NavKey")
             }
         }
+    )
+}
+
+inline fun <reified T : NavKey> navEntry(
+    key: T,
+    noinline content: @Composable (T) -> Unit
+): NavEntry<T> {
+    return NavEntry(
+        key = key,
+        content = content
     )
 }
