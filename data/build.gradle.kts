@@ -32,5 +32,6 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":domain"))
+    implementation("javax.inject:javax.inject:1")
 }
