@@ -22,5 +22,6 @@ dependencyResolutionManagement {
 rootProject.name = "Feast"
 include(":app")
 include(":data")
-include(":domain")
 include(":presentation")
+include(":presentation:home")
+include(":domain")
