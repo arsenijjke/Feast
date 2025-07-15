@@ -57,34 +57,39 @@ android {
 
 dependencies {
 
-    implementation("androidx.appcompat:appcompat:${libs.versions.appcompat.get()}")
-    implementation("androidx.core:core-splashscreen:1.0.1")
+    // Core
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core.splashscreen)
 
-    implementation("androidx.core:core-ktx:${libs.versions.coreKtx.get()}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:${libs.versions.lifecycleRuntimeKtx.get()}")
+    implementation(libs.androidx.core.ktx.v1150)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 
-    val composeBom = platform("androidx.compose:compose-bom:${libs.versions.composeBom.get()}")
+    // Compose
+    val composeBom = platform("androidx.compose:compose-bom:2025.02.00")
     implementation(composeBom)
-
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    implementation("androidx.activity:activity-compose:1.10.1")
-    implementation("androidx.navigation3:navigation3-runtime:${libs.versions.nav3Core}")
-    implementation("androidx.navigation3:navigation3-ui:${libs.versions.nav3Core}")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:${libs.versions.lifecycleViewmodelNav3}")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:${libs.versions.androidx.lifecycle.get()}")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:${libs.versions.androidx.lifecycle.get()}")
-    implementation("androidx.lifecycle:lifecycle-process:${libs.versions.androidx.lifecycle.get()}")
-    implementation("androidx.hilt:hilt-navigation-compose:${libs.versions.hiltNavigationCompose.get()}")
-
-    implementation("com.google.dagger:hilt-android:2.56.2")
-    kapt("com.google.dagger:hilt-android-compiler:2.56.2")
-
-    implementation("com.jakewharton.timber:timber:${libs.versions.jakewhartonTimber.get()}")
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.ui.tooling.preview)
+    debugImplementation(libs.androidx.ui.tooling)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.navigation3.runtime.v100alpha05)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.process)
 
     implementation(libs.androidx.navigation3.ui)
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+
+    // Serialization
     implementation(libs.kotlinx.serialization.core)
+
+    // DI
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+
+    // Timber
+    implementation(libs.timber)
+
+
 }
