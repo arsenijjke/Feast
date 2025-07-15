@@ -38,8 +38,8 @@ android {
 
 dependencies {
     implementation(project(":domain"))
-    implementation("javax.inject:javax.inject:1")
-    implementation("com.google.dagger:hilt-android:${libs.versions.hilt.get()}")
+    implementation(libs.javax.inject)
+    implementation(libs.hilt.android)
     api(libs.androidx.dataStore)
-    kapt("com.google.dagger:hilt-android-compiler:${libs.versions.hilt.get()}")
+    kapt(libs.hilt.android.compiler)
 }
