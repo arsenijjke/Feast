@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -40,6 +41,7 @@ dependencies {
     implementation(project(":domain"))
     implementation(libs.javax.inject)
     implementation(libs.hilt.android)
+    implementation(libs.kotlinx.serialization.json)
     api(libs.androidx.dataStore)
     kapt(libs.hilt.android.compiler)
 }
