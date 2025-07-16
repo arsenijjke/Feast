@@ -6,10 +6,13 @@ import androidx.datastore.core.DataStoreFactory
 import androidx.datastore.dataStoreFile
 import com.example.data.repository.model.UserPreference
 import com.example.data.repository.datastore.UserPreferencesSerializer
+import com.example.data.repository.impl.DailyRateRepositoryImpl
+import com.example.data.repository.impl.UserDataRepositoryImpl
 import com.example.data.repository.util.ApplicationScope
 import com.example.data.repository.util.Dispatcher
 import com.example.data.repository.util.FeastDispatcher
 import com.example.domain.repository.DailyRateRepository
+import com.example.domain.repository.UserDataRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -23,6 +26,11 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class DiDataModule {
+
+    @Binds
+    internal abstract fun bindsUserDataRepository(
+        userDataRepository: UserDataRepository
+    ): UserDataRepositoryImpl
 
     @Binds
     internal abstract fun bindsDailyRateRepository(

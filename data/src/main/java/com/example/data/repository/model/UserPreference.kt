@@ -1,5 +1,6 @@
 package com.example.data.repository.model
 
+import com.example.domain.model.UserProfileUI
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -15,7 +16,8 @@ data class UserPreference(
         name = this.name ?: "",
         age = this.age ?: 0,
         weight = this.weight ?: 0,
-        height = this.height ?: 0
+        height = this.height ?: 0,
+        theme = this.theme ?: 0,
     )
 
     companion object {
@@ -24,7 +26,7 @@ data class UserPreference(
             age = null,
             weight = null,
             height = null,
-            theme = null
+            theme = null,
         )
     }
 }

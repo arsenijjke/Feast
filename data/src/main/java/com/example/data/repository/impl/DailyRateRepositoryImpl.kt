@@ -1,4 +1,4 @@
-package com.example.data.repository
+package com.example.data.repository.impl
 
 import com.example.domain.model.Gender
 import com.example.domain.model.UserInfo
