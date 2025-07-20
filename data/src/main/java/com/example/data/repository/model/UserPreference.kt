@@ -1,6 +1,6 @@
 package com.example.data.repository.model
 
-import com.example.domain.model.UserProfile
+import com.example.domain.model.Gender
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -9,16 +9,9 @@ data class UserPreference(
     val age: Int?,
     val weight: Int?,
     val height: Int?,
-    val theme: Int?
+    val theme: Int?,
+    val gender: Gender?,
 ) {
-
-    fun UserPreference.toUserProfileUI() = UserProfile(
-        name = this.name ?: "",
-        age = this.age ?: 0,
-        weight = this.weight ?: 0,
-        height = this.height ?: 0,
-        theme = this.theme ?: 0,
-    )
 
     companion object {
         fun getDefaultInstance() = UserPreference(
@@ -27,6 +20,7 @@ data class UserPreference(
             weight = null,
             height = null,
             theme = null,
+            gender = Gender.OTHER,
         )
     }
 }

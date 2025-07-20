@@ -5,6 +5,10 @@ data class UserProfile(
     val age: Int?,
     val weight: Int?,
     val height: Int?,
-    val gender: Gender,
+    val gender: Gender?,
     val theme: Int?,
 )
+
+enum class Gender {
+    MALE, FEMALE, OTHER
+}

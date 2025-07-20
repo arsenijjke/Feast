@@ -17,6 +17,7 @@ class FeastPreferencesDataSource @Inject constructor(
                 name = it.name,
                 theme = it.theme,
                 weight = it.weight,
+                gender = it.gender,
             )
         }
 
