@@ -2,10 +2,9 @@ package com.example.presentation.myself
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.model.UserProfileUI
+import com.example.domain.model.UserProfile
 import com.example.domain.repository.UserDataRepository
 import com.example.domain.usecase.CountDailyRateUseCase
-import com.example.domain.util.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -23,7 +22,7 @@ class MyselfViewModel @Inject constructor(
         userDataRepository.userData
             .map { userData ->
                 UserProfileUiState.Success (
-                    profile = UserProfileUI(
+                    profile = UserProfile(
                         name = userData.name ?: "",
                         age = userData.age ?: 0,
                         weight = userData.weight ?: 0,
@@ -42,5 +41,5 @@ class MyselfViewModel @Inject constructor(
 
 sealed interface UserProfileUiState {
     data object Loading : UserProfileUiState
-    data class Success(val profile: UserProfileUI) : UserProfileUiState
+    data class Success(val profile: UserProfile) : UserProfileUiState
 }

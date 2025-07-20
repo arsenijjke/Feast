@@ -1,6 +1,6 @@
 package com.example.data.repository.model
 
-import com.example.domain.model.UserProfileUI
+import com.example.domain.model.UserProfile
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -12,7 +12,7 @@ data class UserPreference(
     val theme: Int?
 ) {
 
-    fun UserPreference.toUserProfileUI() = UserProfileUI(
+    fun UserPreference.toUserProfileUI() = UserProfile(
         name = this.name ?: "",
         age = this.age ?: 0,
         weight = this.weight ?: 0,

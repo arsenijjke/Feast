@@ -1,6 +1,6 @@
 package com.example.domain.model
 
-data class UserProfileUI(
+data class UserProfile(
     val name: String?,
     val age: Int?,
     val weight: Int?,

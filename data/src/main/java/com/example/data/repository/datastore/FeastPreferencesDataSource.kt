@@ -2,7 +2,7 @@ package com.example.data.repository.datastore
 
 import androidx.datastore.core.DataStore
 import com.example.data.repository.model.UserPreference
-import com.example.domain.model.UserProfileUI
+import com.example.domain.model.UserProfile
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -11,7 +11,7 @@ class FeastPreferencesDataSource @Inject constructor(
 ) {
     val userData = userPreference.data
         .map {
-            UserProfileUI(
+            UserProfile(
                 age = it.age,
                 height = it.height,
                 name = it.name,
@@ -20,7 +20,7 @@ class FeastPreferencesDataSource @Inject constructor(
             )
         }
 
-    suspend fun updateProfile(userProfile: UserProfileUI) {
+    suspend fun updateProfile(userProfile: UserProfile) {
         userPreference.updateData { currentPreferences ->
             currentPreferences.copy(
                 name = userProfile.name.takeIf { it?.isNotEmpty() ?: false },

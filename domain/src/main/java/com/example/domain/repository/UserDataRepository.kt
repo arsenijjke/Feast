@@ -1,11 +1,11 @@
 package com.example.domain.repository
 
-import com.example.domain.model.UserProfileUI
+import com.example.domain.model.UserProfile
 import kotlinx.coroutines.flow.Flow
 
 interface UserDataRepository {
 
-    val userData: Flow<UserProfileUI>
+    val userData: Flow<UserProfile>
 
-    suspend fun updateUserProfile(user: UserProfileUI)
+    suspend fun updateUserProfile(user: UserProfile)
 }
