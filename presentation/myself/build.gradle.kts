@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -24,10 +25,6 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
 
     kotlinOptions {
         jvmTarget = "17"
@@ -35,6 +32,16 @@ android {
 
     kapt {
         correctErrorTypes = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        compose = true
+        buildConfig = true
     }
 }
 
@@ -52,10 +59,10 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.runtime.android)
     implementation(project(":domain"))
+    implementation(project(":data"))
     implementation(libs.javax.inject)
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
-
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

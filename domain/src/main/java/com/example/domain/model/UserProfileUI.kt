@@ -5,5 +5,6 @@ data class UserProfileUI(
     val age: Int?,
     val weight: Int?,
     val height: Int?,
+    val gender: Gender,
     val theme: Int?,
 )

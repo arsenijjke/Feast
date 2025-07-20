@@ -29,13 +29,13 @@ abstract class DiDataModule {
 
     @Binds
     internal abstract fun bindsUserDataRepository(
-        userDataRepository: UserDataRepository
-    ): UserDataRepositoryImpl
+        userDataRepository: UserDataRepositoryImpl
+    ): UserDataRepository
 
     @Binds
     internal abstract fun bindsDailyRateRepository(
-        dailyRateRepository: DailyRateRepository
-    ): DailyRateRepositoryImpl
+        dailyRateRepository: DailyRateRepositoryImpl
+    ): DailyRateRepository
 
 }
 
