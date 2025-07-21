@@ -8,5 +8,5 @@ import javax.inject.Inject
 class CountDailyRateUseCase @Inject constructor(
     private val dailyRateRepository: DailyRateRepository
 ) {
-    suspend fun invoke(info: UserProfile): Result<CalorieRate> = dailyRateRepository.getDailyCalorieRate(info)
+    suspend operator fun invoke(info: UserProfile): Result<CalorieRate> = dailyRateRepository.getDailyCalorieRate(info)
 }

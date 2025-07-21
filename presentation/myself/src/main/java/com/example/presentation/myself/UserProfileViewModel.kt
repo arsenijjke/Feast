@@ -2,6 +2,7 @@ package com.example.presentation.myself
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.domain.model.Gender
 import com.example.domain.model.UserProfile
 import com.example.domain.repository.UserDataRepository
 import com.example.domain.usecase.CountDailyRateUseCase
@@ -9,11 +10,12 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
 @HiltViewModel
-class MyselfViewModel @Inject constructor(
+class UserProfileViewModel @Inject constructor(
     private val userDataRepository: UserDataRepository,
     private val setupCalorieRate: CountDailyRateUseCase
 ) : ViewModel() {
@@ -21,7 +23,7 @@ class MyselfViewModel @Inject constructor(
     val userProfileState: StateFlow<UserProfileUiState> =
         userDataRepository.userData
             .map { userData ->
-                UserProfileUiState.Success (
+                UserProfileUiState.Success(
                     profile = UserProfile(
                         name = userData.name ?: "",
                         age = userData.age ?: 0,
@@ -37,6 +39,7 @@ class MyselfViewModel @Inject constructor(
                 initialValue = UserProfileUiState.Loading,
             )
 
+    suspend fun calculateCalorie() = setupCalorieRate(userDataRepository.userData.single())
 }
 
 sealed interface UserProfileUiState {
