@@ -57,6 +57,9 @@ android {
 
 dependencies {
 
+    implementation(project(":presentation:myself"))
+    implementation(project(":domain"))
+
     // Core
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.splashscreen)

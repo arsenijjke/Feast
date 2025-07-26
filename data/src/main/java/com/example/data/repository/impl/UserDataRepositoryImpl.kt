@@ -12,7 +12,7 @@ class UserDataRepositoryImpl @Inject constructor(
 
     override val userData: Flow<UserProfile> = feastPreferencesDataSource.userData
 
-    override suspend fun updateUserProfile(user: UserProfile) =
-        feastPreferencesDataSource.updateProfile(user)
+    override suspend fun updateUserProfile(profile: UserProfile) =
+        feastPreferencesDataSource.updateProfile(profile)
 
 }

@@ -7,5 +7,5 @@ interface UserDataRepository {
 
     val userData: Flow<UserProfile>
 
-    suspend fun updateUserProfile(user: UserProfile)
+    suspend fun updateUserProfile(profile: UserProfile)
 }

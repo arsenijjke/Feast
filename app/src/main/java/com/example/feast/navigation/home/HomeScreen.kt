@@ -1,9 +1,14 @@
 package com.example.feast.navigation.home
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.presentation.myself.UserProfile
+import com.example.presentation.myself.UserProfileViewModel
 
 @Composable
 fun HomeScreen() {
-    Text("HomeScreen is here")
+    val mySelfViewModel = hiltViewModel<UserProfileViewModel>()
+    UserProfile(
+        viewModel = mySelfViewModel
+    )
 }

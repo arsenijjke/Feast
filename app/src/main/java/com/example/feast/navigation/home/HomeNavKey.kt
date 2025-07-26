@@ -12,9 +12,6 @@ import kotlinx.serialization.Serializable
  * HomeNavDisplay a NavDisplay made for feature navigation flow from single display
  */
 
-@Serializable
-data object HomeNavKey : NavKey
-
 @Composable
 fun HomeNavDisplay(
     existedBackStack: NavBackStack,
@@ -30,3 +27,6 @@ fun HomeNavDisplay(
         }
     )
 }
+
+@Serializable
+data object HomeNavKey : NavKey
